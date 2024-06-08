@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --date-picker-background: hsl(var(--b1));
+    --date-picker-foreground: hsl(var(--bc));
+  }
