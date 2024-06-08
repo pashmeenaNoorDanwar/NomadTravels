@@ -38,11 +38,11 @@ export default async function handler(req, res) {
         
         Please strictly adhere to this format and do not include any additional text or explanations.`;
     
-        console.log(itineraryPrompt);
+        
     try {
         const itineraryResult = await model.generateContent(itineraryPrompt);
         const itineraryText = await itineraryResult.response.text();
-        console.log(itineraryText);
+        
         // Send successful response back with the generated itinerary
         return res.status(200).json({ itinerary: itineraryText });
     } catch (error) {

@@ -1,5 +1,6 @@
 import { useRouter, usePathname } from 'next/navigation';
 import { SearchKeys } from '@/types';
+import Image from 'next/image';
 
 export const Selector = () => {
   const router = useRouter();
@@ -20,18 +21,24 @@ export const Selector = () => {
   };
 
   return (
-    <form onSubmit={submit} className="bg-white p-6 rounded-lg shadow-xl">
-      <div className="grid grid-cols-2 gap-6">
-        {formField('From where do you want to plan your trip? *', SearchKeys.Location, 'text', location, 'Enter location', true)}
-        {formField('Start Date *', 'startDate', 'date', startDate, '', true)}
-        {formField('End Date *', 'endDate', 'date', endDate, '', true)}
-        {formField('Activities', SearchKeys.Activity, 'select', activity, 'Select activities', false, activities)}
-        {formField('Budget ($/month)', SearchKeys.Budget, 'number', budget, 'Enter budget')}
-        <div className="col-span-2">
-          <button className="btn btn-primary w-full">Suggest</button>
-        </div>
+    <div className="flex flex-col items-center mt-8 mb-8">
+      <div className="flex items-center mb-6">
+        <Image src="/img/logo.png" alt="Logo" width={50} height={50} />
+        <h1 className="text-2xl font-bold ml-2">Nomad Travel Planner 🌍✈️</h1>
       </div>
-    </form>
+      <form onSubmit={submit} className="bg-white p-6 rounded-lg shadow-xl">
+        <div className="grid grid-cols-2 gap-6">
+          {formField('From where do you want to plan your trip? 🤔 *', SearchKeys.Location, 'text', location, 'Enter location', true)}
+          {formField('Start Date 📅 *', 'startDate', 'date', startDate, '', true)}
+          {formField('End Date 📅 *', 'endDate', 'date', endDate, '', true)}
+          {formField('Activities 🏄‍♂️🏂⛷️', SearchKeys.Activity, 'select', activity, 'Select activities', false, activities)}
+          {formField('Budget ($/month) 💰', SearchKeys.Budget, 'number', budget, 'Enter budget')}
+          <div className="col-span-2">
+            <button className="btn btn-primary w-full">Suggest 🚀</button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 
@@ -66,6 +73,6 @@ function formField(label, name, type, value, placeholder, required = false, opti
 }
 
 const activities = [
-  'Snowboarding', 'Skiing', 'Surfing', 'Chilling on the beach',
-  'Hiking', 'Shopping', 'Sightseeing'
+  'Snowboarding 🏂', 'Skiing ⛷️', 'Surfing 🏄‍♂️', 'Chilling on the beach 🏖️',
+  'Hiking 🥾', 'Shopping 🛍️', 'Sightseeing 🏰'
 ];
